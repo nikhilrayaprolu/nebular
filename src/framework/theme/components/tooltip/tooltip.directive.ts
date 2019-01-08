@@ -106,6 +106,13 @@ export class NbTooltipDirective implements AfterViewInit, OnDestroy {
     this.context = Object.assign(this.context, { status });
   }
 
+  /**
+   * Describes when the container will be shown.
+   * Available options: `click`, `hover`, `hint`, `focus` and `noop`
+   * */
+  @Input('nbTooltipTrigger')
+  trigger: NbTrigger = NbTrigger.HINT;
+
   protected ref: NbOverlayRef;
   protected container: ComponentRef<any>;
   protected positionStrategy: NbAdjustableConnectedPositionStrategy;
@@ -182,7 +189,7 @@ export class NbTooltipDirective implements AfterViewInit, OnDestroy {
 
   protected createTriggerStrategy(): NbTriggerStrategy {
     return this.triggerStrategyBuilder
-      .trigger(NbTrigger.HINT)
+      .trigger(this.trigger)
       .host(this.hostRef.nativeElement)
       .container(() => this.container)
       .build();
