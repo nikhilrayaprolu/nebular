@@ -108,6 +108,11 @@ import { NbPopoverComponent } from './popover.component';
  *
  * @stacked-example(Manual Control, popover/popover-noop.component)
  *
+ * Noop mode is especially useful when you need to control Popover programmatically, for example show/hide
+ * as a result of some third-party action, like HTTP request or validation check:
+ *
+ * @stacked-example(Manual control, popover/popover-noop.component)
+ *
  * @additional-example(Template Ref, popover/popover-template-ref.component)
  * @additional-example(Custom Component, popover/popover-custom-component.component)
  * */
